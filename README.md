@@ -193,9 +193,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Portfolio: [Your Portfolio](https://yourportfolio.com)
+- GitHub: [@Poyrax](https://github.com/Poyraxx)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/erol-poyraz-%C3%A7akmaz-a865a9387/)
 
 ## 🙏 Acknowledgments
 
@@ -203,20 +202,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Font Awesome for amazing icons
 - Google Fonts for Inter typography
 - CSS Grid and Flexbox for modern layouts
-
-## 📸 Screenshots
-
-### Dashboard View
-![Dashboard](https://via.placeholder.com/600x400/6366f1/ffffff?text=Dashboard+View)
-
-### Transaction Management
-![Transactions](https://via.placeholder.com/600x400/10b981/ffffff?text=Transaction+Management)
-
-### Budget Tracking
-![Budget](https://via.placeholder.com/600x400/f59e0b/ffffff?text=Budget+Tracking)
-
-### Dark Theme
-![Dark Theme](https://via.placeholder.com/600x400/1e293b/ffffff?text=Dark+Theme)
 
 ## 🎯 Portfolio Value
 
@@ -237,3 +222,4 @@ Perfect for showcasing in your portfolio or CV!
 ⭐ **Star this repository if you found it helpful!**
 
 Made with ❤️ for smart budgeting
+
