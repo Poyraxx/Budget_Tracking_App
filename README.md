@@ -215,11 +215,10 @@ This project demonstrates:
 - **Performance** - Optimized loading and rendering
 - **Accessibility** - WCAG compliant design
 
-Perfect for showcasing in your portfolio or CV!
-
 ---
 
 ⭐ **Star this repository if you found it helpful!**
 
 Made with ❤️ for smart budgeting
+
 
