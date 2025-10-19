@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poyrax Finans - Akıllı Bütçe Takipçisi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-wallet"></i>
+                    <h1>Poyrax Finans</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="export-btn" id="exportBtn" aria-label="Export data">
+                        <i class="fas fa-download"></i>
+                    </button>
+                    <button class="import-btn" id="importBtn" aria-label="Import data">
+                        <i class="fas fa-upload"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="dashboard" id="dashboard">
+                <div class="dashboard-header">
+                    <h2>Dashboard</h2>
+                    <div class="date-filter">
+                        <select id="dateFilter">
+                            <option value="current">Current Month</option>
+                            <option value="last">Last Month</option>
+                            <option value="year">This Year</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="summary-cards">
+                    <div class="card balance-card">
+                        <div class="card-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Total Balance</h3>
+                            <div class="amount" id="totalBalance">$0.00</div>
+                            <div class="change" id="balanceChange">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card income-card">
+                        <div class="card-icon">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Total Income</h3>
+                            <div class="amount" id="totalIncome">$0.00</div>
+                            <div class="change" id="incomeChange">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card expense-card">
+                        <div class="card-icon">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Total Expenses</h3>
+                            <div class="amount" id="totalExpenses">$0.00</div>
+                            <div class="change" id="expenseChange">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card savings-card">
+                        <div class="card-icon">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Savings Rate</h3>
+                            <div class="amount" id="savingsRate">0%</div>
+                            <div class="change" id="savingsChange">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-section">
+                    <div class="chart-container">
+                        <h3>Expense Categories</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="expenseChart" data-chart="expense"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Income vs Expenses Trend</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="trendChart" data-chart="trend"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="transactions" id="transactions">
+                <div class="section-header">
+                    <h2>Transactions</h2>
+                    <div class="transaction-actions">
+                        <button class="btn btn-primary" id="addTransactionBtn">
+                            <i class="fas fa-plus"></i>
+                            Add Transaction
+                        </button>
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchTransactions" placeholder="Search transactions...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal" id="transactionModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="modalTitle">Add Transaction</h3>
+                            <button class="close-btn" id="closeModal">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <form id="transactionForm">
+                            <div class="form-group">
+                                <label for="transactionType">Type</label>
+                                <select id="transactionType" required>
+                                    <option value="income">Income</option>
+                                    <option value="expense">Expense</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="transactionAmount">Amount</label>
+                                <input type="number" id="transactionAmount" step="0.01" min="0" required>
+                            </div>
+                        <div class="form-group">
+                            <label for="transactionCategory">Category</label>
+                            <div class="category-input-group">
+                                <select id="transactionCategory" required>
+                                    <option value="">Select Category</option>
+                                </select>
+                                <button type="button" class="btn btn-secondary btn-sm" id="addCategoryBtn" title="Add Custom Category">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                <label for="transactionDescription">Description</label>
+                                <input type="text" id="transactionDescription" placeholder="Enter description...">
+                            </div>
+                            <div class="form-group">
+                                <label for="transactionDate">Date</label>
+                                <input type="date" id="transactionDate" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" id="cancelTransaction">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save Transaction</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="transactions-table" id="transactionsTable">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="budget" id="budget">
+                <div class="section-header">
+                    <h2>Budget Management</h2>
+                    <button class="btn btn-primary" id="addBudgetBtn">
+                        <i class="fas fa-plus"></i>
+                        Set Budget
+                    </button>
+                </div>
+
+                <div class="budget-cards" id="budgetCards">
+                </div>
+            </section>
+
+            <section class="reports" id="reports">
+                <div class="section-header">
+                    <h2>Reports & Analytics</h2>
+                    <div class="report-actions">
+                        <button class="btn btn-secondary" id="printReportBtn">
+                            <i class="fas fa-print"></i>
+                            Print Report
+                        </button>
+                        <button class="btn btn-secondary" id="exportReportBtn">
+                            <i class="fas fa-file-csv"></i>
+                            Export CSV
+                        </button>
+                    </div>
+                </div>
+
+                <div class="reports-content">
+                    <div class="report-filters">
+                        <div class="filter-group">
+                            <label for="reportStartDate">Start Date</label>
+                            <input type="date" id="reportStartDate">
+                        </div>
+                        <div class="filter-group">
+                            <label for="reportEndDate">End Date</label>
+                            <input type="date" id="reportEndDate">
+                        </div>
+                        <button class="btn btn-primary" id="generateReportBtn">Generate Report</button>
+                    </div>
+
+                    <div class="report-results" id="reportResults">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Poyrax Finans. Akıllı bütçe yönetimi için ❤️ ile yapıldı.</p>
+        </div>
+    </footer>
+
+    <input type="file" id="fileInput" accept=".json" style="display: none;">
+
+    <div class="modal" id="categoryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Custom Category</h3>
+                <button class="close-btn" id="closeCategoryModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="categoryForm">
+                <div class="form-group">
+                    <label for="categoryName">Category Name</label>
+                    <input type="text" id="categoryName" placeholder="Enter category name..." required>
+                </div>
+                <div class="form-group">
+                    <label for="categoryType">Type</label>
+                    <select id="categoryType" required>
+                        <option value="">Select Type</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="categoryColor">Color</label>
+                    <div class="color-picker">
+                        <input type="color" id="categoryColor" value="#6366f1">
+                        <div class="color-presets">
+                            <div class="color-preset" data-color="#ef4444" style="background: #ef4444;"></div>
+                            <div class="color-preset" data-color="#f97316" style="background: #f97316;"></div>
+                            <div class="color-preset" data-color="#f59e0b" style="background: #f59e0b;"></div>
+                            <div class="color-preset" data-color="#eab308" style="background: #eab308;"></div>
+                            <div class="color-preset" data-color="#84cc16" style="background: #84cc16;"></div>
+                            <div class="color-preset" data-color="#22c55e" style="background: #22c55e;"></div>
+                            <div class="color-preset" data-color="#10b981" style="background: #10b981;"></div>
+                            <div class="color-preset" data-color="#14b8a6" style="background: #14b8a6;"></div>
+                            <div class="color-preset" data-color="#06b6d4" style="background: #06b6d4;"></div>
+                            <div class="color-preset" data-color="#0ea5e9" style="background: #0ea5e9;"></div>
+                            <div class="color-preset" data-color="#3b82f6" style="background: #3b82f6;"></div>
+                            <div class="color-preset" data-color="#6366f1" style="background: #6366f1;"></div>
+                            <div class="color-preset" data-color="#8b5cf6" style="background: #8b5cf6;"></div>
+                            <div class="color-preset" data-color="#a855f7" style="background: #a855f7;"></div>
+                            <div class="color-preset" data-color="#d946ef" style="background: #d946ef;"></div>
+                            <div class="color-preset" data-color="#ec4899" style="background: #ec4899;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="categoryIcon">Icon</label>
+                    <select id="categoryIcon">
+                        <option value="fas fa-tag">Tag</option>
+                        <option value="fas fa-shopping-cart">Shopping</option>
+                        <option value="fas fa-utensils">Food</option>
+                        <option value="fas fa-car">Transport</option>
+                        <option value="fas fa-home">Home</option>
+                        <option value="fas fa-heart">Health</option>
+                        <option value="fas fa-graduation-cap">Education</option>
+                        <option value="fas fa-gamepad">Entertainment</option>
+                        <option value="fas fa-plane">Travel</option>
+                        <option value="fas fa-briefcase">Work</option>
+                        <option value="fas fa-chart-line">Investment</option>
+                        <option value="fas fa-gift">Gift</option>
+                        <option value="fas fa-coffee">Coffee</option>
+                        <option value="fas fa-music">Music</option>
+                        <option value="fas fa-book">Books</option>
+                        <option value="fas fa-dumbbell">Fitness</option>
+                        <option value="fas fa-paw">Pets</option>
+                        <option value="fas fa-wrench">Maintenance</option>
+                        <option value="fas fa-ellipsis-h">Other</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelCategory">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Category</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/budget.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
