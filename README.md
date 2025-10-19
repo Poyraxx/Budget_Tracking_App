@@ -2,7 +2,7 @@
 
 A modern, feature-rich budget tracking web application built with vanilla JavaScript, HTML5, and CSS3. Perfect for personal finance management and portfolio demonstration.
 
-![Poyrax Finans Preview](https://poyrax.com.tr/)
+[Poyrax Finans Preview](https://poyrax.com.tr/)
 
 ## ✨ Features
 
@@ -220,5 +220,6 @@ This project demonstrates:
 ⭐ **Star this repository if you found it helpful!**
 
 Made with ❤️ for smart budgeting
+
 
 
