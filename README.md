@@ -1,225 +1,111 @@
-# 💰 Poyrax Finans - Akıllı Bütçe Takipçisi
+# Poyrax Finance - Budget Tracking App
 
-A modern, feature-rich budget tracking web application built with vanilla JavaScript, HTML5, and CSS3. Perfect for personal finance management and portfolio demonstration.
+Poyrax Finance is a simple budget tracking application built to help users manage their personal income and expenses. The app runs directly in the browser and stores data locally with LocalStorage, so it does not require a server or installation.
 
-[Poyrax Finans Preview](https://poyrax.com.tr/)
+The project includes basic finance tracking features such as adding transactions, setting category budgets, viewing income and expenses, analyzing data with charts, and exporting records.
 
-## ✨ Features
+## Features
 
-### 📊 Dashboard
-- **Real-time Balance Display** - Live calculation of income vs expenses
-- **Monthly Summary Cards** - Visual overview of financial health
-- **Interactive Charts** - Beautiful pie charts and trend graphs using Chart.js
-- **Savings Rate Tracking** - Monitor your saving percentage
+### Dashboard
 
-### 💳 Transaction Management
-- **Add/Edit/Delete Transactions** - Full CRUD operations
-- **Category Management** - Pre-defined and custom categories
-- **Search & Filter** - Find transactions quickly
-- **Date Range Filtering** - View data by month, year, or custom range
-- **Transaction History** - Complete audit trail
+The dashboard shows the user's current balance, total income, total expenses, and savings rate. It gives a quick overview of the user's financial situation in one place.
 
-### 🎯 Budget Planning
-- **Set Budget Limits** - Monthly budgets per category
-- **Visual Progress Bars** - See budget utilization at a glance
-- **Budget Alerts** - Warnings when approaching limits
-- **Performance Tracking** - Monitor budget adherence
+Charts are also included to make spending patterns and category distributions easier to understand.
 
-### 📈 Reports & Analytics
-- **Financial Reports** - Comprehensive spending analysis
-- **Category Breakdown** - Detailed expense categorization
-- **Trend Analysis** - Income/expense patterns over time
-- **Export Functionality** - CSV and JSON export options
-- **Print Reports** - Professional report printing
+### Transaction Management
 
-### 🎨 Modern UI/UX
-- **Dark/Light Theme** - Toggle between themes
-- **Responsive Design** - Works on all devices
-- **Smooth Animations** - Delightful micro-interactions
-- **Glassmorphism Effects** - Modern visual design
-- **Accessibility** - WCAG compliant design
+Users can add, edit, and delete income or expense records. Each transaction can include a category, date, amount, and description.
 
-### 🔧 Advanced Features
-- **Data Import/Export** - Backup and restore functionality
-- **Local Storage** - No server required, data stays local
-- **Keyboard Shortcuts** - Power user features
-- **Multi-currency Support** - International currency formatting
-- **Data Validation** - Robust input validation
+Transactions can also be searched and filtered, making it easier to review past records.
 
-## 🚀 Getting Started
+### Budget Planning
 
-### Prerequisites
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- No server or installation required!
+Users can set monthly budget limits for different categories. Progress bars show how much of each budget has been used.
 
-### Installation
-1. Clone or download the repository
-2. Open `index.html` in your web browser
-3. Start tracking your finances immediately!
+This feature is designed to help users keep their spending under control and follow their monthly plan more easily.
+
+### Reports and Analysis
+
+The app can analyze income and expenses by category. Users can review their spending habits through charts and summary sections.
+
+Data can be exported in CSV or JSON format. This makes it possible to back up records or use them in other tools.
+
+### Theme and Interface
+
+The application includes both light and dark theme support. The interface is designed to work on different screen sizes.
+
+It can be used on desktop, tablet, and mobile devices with a responsive layout.
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- Chart.js
+- LocalStorage
+- Font Awesome
+- Google Fonts
+
+## Installation
+
+No server setup is required to run the project.
 
 ```bash
-# Clone the repository
 git clone https://github.com/poyraxx/Finance.git
-
-# Navigate to the project directory
 cd Finance
-
-# Open in browser
-open index.html
 ```
 
-## 📁 Project Structure
+After that, open the `index.html` file in your browser.
 
-```
-poyrax-finans/
-├── index.html              # Main application file
+## Project Structure
+
+```txt
+poyrax-finance/
+├── index.html
 ├── css/
-│   ├── style.css          # Main styles and layout
-│   ├── themes.css         # Dark/light theme styles
-│   └── animations.css     # Smooth animations and transitions
+│   ├── style.css
+│   ├── themes.css
+│   └── animations.css
 ├── js/
-│   ├── app.js             # Main application logic
-│   ├── storage.js         # LocalStorage management
-│   ├── charts.js          # Chart.js configurations
-│   ├── budget.js          # Budget management
-│   └── utils.js           # Utility functions
-└── README.md              # Project documentation
+│   ├── app.js
+│   ├── storage.js
+│   ├── charts.js
+│   ├── budget.js
+│   └── utils.js
+└── README.md
 ```
 
-## 🛠️ Technical Stack
+## Project Notes
 
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript (ES6+)
-- **Charts**: Chart.js for data visualization
-- **Storage**: LocalStorage for data persistence
-- **Styling**: CSS Grid, Flexbox, CSS Variables
-- **Icons**: Font Awesome 6
-- **Fonts**: Inter (Google Fonts)
+The main goal of this project is to create a clear and usable budget tracking system. Since the data is stored in the browser, the app can be used quickly without needing a backend.
 
-## 🎯 Key Features Explained
+Chart.js is used to display financial data in a more understandable way. The JavaScript files are separated by responsibility to keep the project structure cleaner.
 
-### Smart Data Management
-- **Automatic Data Persistence** - All data saved locally
-- **Data Validation** - Prevents invalid entries
-- **Backup & Restore** - Export/import functionality
-- **Data Integrity** - Robust error handling
+## Browser Support
 
-### Beautiful Visualizations
-- **Interactive Charts** - Hover effects and animations
-- **Responsive Design** - Adapts to any screen size
-- **Theme Support** - Dark and light modes
-- **Professional Styling** - Modern glassmorphism design
+The app is intended to work on modern browsers such as:
 
-### User Experience
-- **Intuitive Interface** - Easy to use for all skill levels
-- **Keyboard Shortcuts** - Power user features
-- **Real-time Updates** - Instant data refresh
-- **Mobile Optimized** - Touch-friendly interface
+- Chrome
+- Firefox
+- Safari
+- Edge
 
-## 📱 Responsive Design
+## Possible Future Improvements
 
-BudgetBuddy is fully responsive and works perfectly on:
-- 📱 Mobile phones (320px+)
-- 📱 Tablets (768px+)
-- 💻 Laptops (1024px+)
-- 🖥️ Desktop computers (1200px+)
+- Recurring transactions
+- Bill reminders
+- Saving goals
+- Multiple account support
+- PWA support
+- Cloud synchronization
 
-## 🎨 Customization
+## Developer
 
-### Adding New Categories
-```javascript
-// Add custom income category
-storageManager.addCategory('income', {
-    name: 'Freelance Work',
-    color: '#3b82f6',
-    icon: 'fas fa-laptop-code'
-});
+**Erol Poyraz Çakmaz**
 
-// Add custom expense category
-storageManager.addCategory('expense', {
-    name: 'Gaming',
-    color: '#8b5cf6',
-    icon: 'fas fa-gamepad'
-});
-```
+- GitHub: [@Poyraxx](https://github.com/Poyraxx)
+- LinkedIn: [Erol Poyraz Çakmaz](https://www.linkedin.com/in/erol-poyraz-%C3%A7akmaz-a865a9387/)
 
-### Theme Customization
-```css
-:root {
-  --primary-color: #your-color;
-  --success-color: #your-color;
-  --warning-color: #your-color;
-  --error-color: #your-color;
-}
-```
+## License
 
-## 🔧 Browser Support
-
-- ✅ Chrome 80+
-- ✅ Firefox 75+
-- ✅ Safari 13+
-- ✅ Edge 80+
-
-## 📊 Performance
-
-- **Lightweight** - No external dependencies except Chart.js
-- **Fast Loading** - Optimized CSS and JavaScript
-- **Efficient Storage** - Minimal localStorage usage
-- **Smooth Animations** - 60fps animations using CSS transforms
-
-## 🚀 Future Enhancements
-
-- [ ] Recurring transactions
-- [ ] Bill reminders
-- [ ] Investment tracking
-- [ ] Goal setting
-- [ ] Multi-account support
-- [ ] Cloud synchronization
-- [ ] Mobile app (PWA)
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Author
-
-**Your Name**
-- GitHub: [@Poyrax](https://github.com/Poyraxx)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/erol-poyraz-%C3%A7akmaz-a865a9387/)
-
-## 🙏 Acknowledgments
-
-- Chart.js for beautiful data visualizations
-- Font Awesome for amazing icons
-- Google Fonts for Inter typography
-- CSS Grid and Flexbox for modern layouts
-
-## 🎯 Portfolio Value
-
-This project demonstrates:
-- **Modern Frontend Skills** - HTML5, CSS3, ES6+ JavaScript
-- **Data Visualization** - Chart.js integration
-- **State Management** - LocalStorage and data persistence
-- **Responsive Design** - Mobile-first approach
-- **User Experience** - Intuitive interface design
-- **Code Organization** - Modular JavaScript architecture
-- **Performance** - Optimized loading and rendering
-- **Accessibility** - WCAG compliant design
-
----
-
-⭐ **Star this repository if you found it helpful!**
-
-Made with ❤️ for smart budgeting
-
-
-
+This project is licensed under the MIT License.
