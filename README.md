@@ -100,11 +100,8 @@ The app is intended to work on modern browsers such as:
 - Cloud synchronization
 
 ## Developer
-
-**Erol Poyraz Çakmaz**
-
 - GitHub: [@Poyraxx](https://github.com/Poyraxx)
-- LinkedIn: [Erol Poyraz Çakmaz](https://www.linkedin.com/in/erol-poyraz-%C3%A7akmaz-a865a9387/)
+
 
 ## License
 
